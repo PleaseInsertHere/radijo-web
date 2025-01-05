@@ -15,16 +15,17 @@
 <body>
 
     <h1>Naujienos:</h1> 
-    
+
     <!--Naudojamas Youtube Data API v3
     https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&inv=1&invt=AbmC-w&project=river-key-407312-->
     
     <div id="video-container"></div>
 
   <script>
+    
     const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg'; // mano yt api kodukas
     const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA'; // radijo kanalo ID
-    const MAX_RESULTS = 5;
+    const MAX_RESULTS = 5; // kiek naujausiu video rodys
 
     async function fetchLatestVideos() {
       const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
@@ -49,6 +50,7 @@
     }
 
     fetchLatestVideos();
+
   </script>
   
 </body>

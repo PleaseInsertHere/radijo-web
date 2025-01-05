@@ -1,0 +1,7 @@
+html {
+    box-sizing: border-box; /* Dėžės modelis :(   */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <header>
+    <p>Ąžuolyno Radijas</p>
+    <title>Pagrindinis</title>
+    
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css" /> 
+
 </header>
 
 <head>
@@ -14,7 +21,7 @@
 
 <body>
 
-    <h1>Naujienos:</h1> 
+    <h1>Naujausios tinklalaidės:</h1> 
 
     <!--Naudojamas Youtube Data API v3
     https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&inv=1&invt=AbmC-w&project=river-key-407312-->
@@ -22,10 +29,10 @@
     <div id="video-container"></div>
 
   <script>
-    
+
     const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg'; // mano yt api kodukas
     const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA'; // radijo kanalo ID
-    const MAX_RESULTS = 5; // kiek naujausiu video rodys
+    const MAX_RESULTS = 3; // kiek naujausiu video rodys
 
     async function fetchLatestVideos() {
       const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
@@ -53,6 +60,12 @@
 
   </script>
   
+  <aside>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1457.8566326678665!2d21.15814067337195!3d55.70077204357515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e4dc0e60bb71cd%3A0xbb12a978a1dc599b!2zS2xhaXDEl2RvcyDigJ7EhMW-dW9seW5v4oCcIGdpbW5hemlqYQ!5e0!3m2!1slt!2slt!4v1736104862931!5m2!1slt!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  </aside>
+
 </body>
 
 </html>

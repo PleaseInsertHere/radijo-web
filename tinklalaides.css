@@ -3,7 +3,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: whitesmoke;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
 }
 
 h1 {
@@ -13,11 +16,10 @@ h1 {
 
 .podcast-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
     gap: 24px; /* Space between items */
-    justify-content: center; /* Center the grid horizontally */
-    max-width: 800px;
-    margin: 0 auto; /* Center grid on the page */
+    justify-content: center;
+    max-width: 100%;
 }
 
 .podcast-item {
@@ -25,44 +27,50 @@ h1 {
 }
 
 .podcast-item img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     border-radius: 12px;
     transition: transform 0.3s ease;
 }
 
 .podcast-item img:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
+    transform: scale(1.1);
 }
 
 .podcast-item p {
     margin-top: 8px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
-/* Special layout for 5 podcasts */
-.podcast-item:nth-child(5) {
-    grid-column: 2; /* Center the 5th item */
+/* Special rule for 5 items: Center the last row with 2 items */
+.podcast-grid {
+    grid-template-rows: auto auto; /* Two rows */
 }
 
-/* Responsive Design for Smaller Screens */
+.podcast-grid > .podcast-item:nth-child(4),
+.podcast-grid > .podcast-item:nth-child(5) {
+    grid-column: span 1; /* Ensure individual items in their own grid cells */
+    justify-self: center; /* Center items in the grid */
+}
+
+.podcast-grid > .podcast-item:nth-child(5) {
+    justify-self: start; /* Align second item on the left of its cell */
+}
+
 @media all and (max-width: 768px) {
     .podcast-grid {
-        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns */
     }
 
-    .podcast-item:nth-child(5) {
-        grid-column: span 1; /* Standard flow */
+    .podcast-grid > .podcast-item:nth-child(5) {
+        justify-self: center; /* Center on smaller screens */
     }
 }
 
 @media all and (max-width: 480px) {
     .podcast-grid {
-        grid-template-columns: 1fr; /* Single column on small screens */
-    }
-
-    .podcast-item:nth-child(5) {
-        grid-column: span 1; /* Standard flow */
+        grid-template-columns: 1fr; /* Single column for small screens */
     }
 }

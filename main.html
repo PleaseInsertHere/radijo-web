@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <header>
-    <p>Ąžuolyno Radijas</p>
-    <title>Pagrindinis</title>
+    <title>Ąžuolyno Radijas</title>
     
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,55 +16,59 @@
         <li><a href="main.html">Pradžia</a></li>
         <li><a href="tinklalaides.html">Tinklalaides</a></li>
     </ul>
-
+    <br>
 </head>
 
 <aside>
 
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1457.8566326678665!2d21.15814067337195!3d55.70077204357515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e4dc0e60bb71cd%3A0xbb12a978a1dc599b!2zS2xhaXDEl2RvcyDigJ7EhMW-dW9seW5v4oCcIGdpbW5hemlqYQ!5e0!3m2!1slt!2slt!4v1736104862931!5m2!1slt!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <h1>Naujausios tinklalaidės:</h1> 
+
+  <!--Naudojamas Youtube Data API v3
+  https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&inv=1&invt=AbmC-w&project=river-key-407312-->
+  
+  <div id="video-container"></div>
+
+<script>
+
+  const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg'; // mano yt api kodukas
+  const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA'; // radijo kanalo ID
+  const MAX_RESULTS = 5; // kiek naujausiu video rodys
+
+  async function fetchLatestVideos() {
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const videoContainer = document.getElementById('video-container');
+    data.items.forEach(item => {
+      if (item.id.kind === "youtube#video") {
+        const videoId = item.id.videoId;
+        const videoTitle = item.snippet.title;
+
+        const videoElement = document.createElement('div');
+        videoElement.className = 'video';
+        videoElement.innerHTML = `
+          <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+          <p>${videoTitle}</p>
+        `;
+        videoContainer.appendChild(videoElement);
+      }
+    });
+  }
+
+  fetchLatestVideos();
+
+</script>
   
 </aside>
 
 <body>
-
-    <h1>Naujausios tinklalaidės:</h1> 
-
-    <!--Naudojamas Youtube Data API v3
-    https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&inv=1&invt=AbmC-w&project=river-key-407312-->
-    
-    <div id="video-container"></div>
-
-  <script>
-
-    const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg'; // mano yt api kodukas
-    const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA'; // radijo kanalo ID
-    const MAX_RESULTS = 3; // kiek naujausiu video rodys
-
-    async function fetchLatestVideos() {
-      const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
-      const response = await fetch(url);
-      const data = await response.json();
-
-      const videoContainer = document.getElementById('video-container');
-      data.items.forEach(item => {
-        if (item.id.kind === "youtube#video") {
-          const videoId = item.id.videoId;
-          const videoTitle = item.snippet.title;
-
-          const videoElement = document.createElement('div');
-          videoElement.className = 'video';
-          videoElement.innerHTML = `
-            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-            <p>${videoTitle}</p>
-          `;
-          videoContainer.appendChild(videoElement);
-        }
-      });
-    }
-
-    fetchLatestVideos();
-
-  </script>
+  
+  
+  <p>,,Ąžuolyno radijas'' - tai internetinis radijas. Jame vyksta laidos, interviu, podcast'ai, muzika ir daug visko, kas suteikia ąžuolyniečiui energijos ir įkvėpimo.</p>
+  
+  <br>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1457.8566326678665!2d21.15814067337195!3d55.70077204357515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e4dc0e60bb71cd%3A0xbb12a978a1dc599b!2zS2xhaXDEl2RvcyDigJ7EhMW-dW9seW5v4oCcIGdpbW5hemlqYQ!5e0!3m2!1slt!2slt!4v1736104862931!5m2!1slt!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
   <div class="article">
 
@@ -79,8 +82,6 @@
     <p class="links"><a href="#">Spotify</a></p>
 
   </div>
-
-  
 
 </body>
 

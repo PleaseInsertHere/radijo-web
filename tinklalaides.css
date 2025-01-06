@@ -3,52 +3,66 @@ body {
     margin: 0;
     padding: 0;
     background-color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Horizontally center the content */
+    text-align: center;
 }
 
 h1 {
     text-align: center;
-    margin: 24px 0; /* Add spacing above and below the title */
+    margin: 24px 0;
 }
 
 .podcast-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
     gap: 24px; /* Space between items */
-    justify-content: center; /* Center grid within the container */
+    justify-content: center; /* Center the grid horizontally */
+    max-width: 800px;
+    margin: 0 auto; /* Center grid on the page */
 }
 
 .podcast-item {
-    width: 100%; /* Full width of grid cell */
-    max-width: 300px; /* Adjust size of the logos */
     text-align: center;
 }
 
-.podcast-item a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit text color */
-}
-
 .podcast-item img {
-    width: 100%; /* Responsive image */
-    border-radius: 12px; /* Optional rounded corners */
-    transition: transform 0.3s ease; /* Add hover effect */
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
 }
 
 .podcast-item img:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.1); /* Zoom effect on hover */
 }
 
+.podcast-item p {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Special layout for 5 podcasts */
+.podcast-item:nth-child(5) {
+    grid-column: 2; /* Center the 5th item */
+}
+
+/* Responsive Design for Smaller Screens */
 @media all and (max-width: 768px) {
     .podcast-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+
+    .podcast-item:nth-child(5) {
+        grid-column: span 1; /* Standard flow */
     }
 }
 
 @media all and (max-width: 480px) {
     .podcast-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .podcast-item:nth-child(5) {
+        grid-column: span 1; /* Standard flow */
     }
 }

@@ -1,11 +1,54 @@
-html {
-    box-sizing: border-box; /* Dėžės modelis :(   */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center the content */
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
+h1 {
+    text-align: center;
+    margin: 24px 0; /* Add spacing above and below the title */
 }
 
-html{
-background-color: whitesmoke;
+.podcast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 24px; /* Space between items */
+    justify-content: center; /* Center grid within the container */
+}
+
+.podcast-item {
+    width: 100%; /* Full width of grid cell */
+    max-width: 300px; /* Adjust size of the logos */
+    text-align: center;
+}
+
+.podcast-item a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+
+.podcast-item img {
+    width: 100%; /* Responsive image */
+    border-radius: 12px; /* Optional rounded corners */
+    transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.podcast-item img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+@media all and (max-width: 768px) {
+    .podcast-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+
+@media all and (max-width: 480px) {
+    .podcast-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
 }

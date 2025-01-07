@@ -13,7 +13,7 @@ ul {
     float: left;
   }
 
-  a {
+.meniu a {
     display: block;
     padding: 8px;
     background-color: #dddddd;
@@ -86,11 +86,11 @@ nav ul li:last-child {
     border-right: none;
 }
 
-nav ul li a {
+nav ul li .meniu a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
+nav ul li .meniu a:hover {
     color: white;
     background-color: black;
     border-radius: 5px;
@@ -118,3 +118,52 @@ footer {
     }
 }
 
+li a:hover {
+    background-color: #111;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+ /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+} 
+
+.column img:hover {
+    transform: scale(1.1);
+}
+
+.column img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}

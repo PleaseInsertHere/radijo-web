@@ -18,8 +18,8 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
     gap: 24px; /* Space between items */
-    justify-content: center;
     max-width: 100%;
+    justify-content: center;
 }
 
 .podcast-item {
@@ -44,28 +44,29 @@ h1 {
     font-weight: bold;
 }
 
-/* Special rule for 5 items: Center the last row with 2 items */
+/* Ensure proper alignment for the last row */
 .podcast-grid {
-    grid-template-rows: auto auto; /* Two rows */
+    grid-auto-rows: auto; /* Flexible row heights */
+    justify-items: center; /* Center each item horizontally */
+    align-items: center; /* Center each item vertically */
 }
 
-.podcast-grid > .podcast-item:nth-child(4),
-.podcast-grid > .podcast-item:nth-child(5) {
-    grid-column: span 1; /* Ensure individual items in their own grid cells */
-    justify-self: center; /* Center items in the grid */
+.podcast-grid > .podcast-item:nth-child(5),
+.podcast-grid > .podcast-item:nth-child(6) {
+    justify-self: center; /* Center on the grid cell */
 }
 
-.podcast-grid > .podcast-item:nth-child(5) {
-    justify-self: start; /* Align second item on the left of its cell */
+/* Special rule for 6 items */
+.podcast-grid {
+    grid-template-rows: repeat(2, auto); /* Ensure two rows */
+    grid-auto-flow: dense; /* Prevent gaps between rows */
 }
 
+/* Responsive rules for smaller screens */
 @media all and (max-width: 768px) {
     .podcast-grid {
-        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns */
-    }
-
-    .podcast-grid > .podcast-item:nth-child(5) {
-        justify-self: center; /* Center on smaller screens */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        grid-template-rows: auto; /* Adjust row flow */
     }
 }
 

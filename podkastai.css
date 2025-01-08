@@ -1,6 +1,5 @@
 body {
     font-family: 'Roboto', sans-serif;
-
 }
 
 ul {
@@ -167,4 +166,23 @@ li a:hover {
     height: auto;
     border-radius: 12px;
     transition: transform 0.3s ease;
+}
+
+.podcast-item {
+    text-align: center;
+}
+
+.podcast-item img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+
+.podcast-item p {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
 }

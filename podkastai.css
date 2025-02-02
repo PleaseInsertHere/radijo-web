@@ -23,6 +23,7 @@ aside {
     float: right;
     width: 30%; /* Adjust width as needed */
     margin-left: 16px; /* Add spacing between main content and aside */
+    
 }
 
 main {
@@ -190,3 +191,12 @@ li a:hover {
 p {
     font-size: 20px;
   }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    width:auto\9
+}
+

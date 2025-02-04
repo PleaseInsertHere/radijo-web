@@ -1,81 +1,106 @@
 <!DOCTYPE html>
-<html lang="lt">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ąžuolyno Radijas</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-</head>
-<body>
-
+<html>
 <header>
-    <h1>Ąžuolyno Radijas</h1>
+    <title>Ąžuolyno Radijas</title>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+    <link rel="stylesheet" type="text/css" href="main.css" /> 
+
 </header>
 
-<nav>
+<head>
     <ul>
         <li><a class="meniu" href="main.html">Pradžia</a></li>
-        <li><a class="meniu" href="tinklalaides.html">Tinklalaidės</a></li>
+        <li><a class="meniu" href="tinklalaides.html">Tinklalaides</a></li>
     </ul>
-</nav>
+    
 
-<!-- Flexbox container for main content and sidebar -->
-<div class="container">
-    <main>
-        <h3>"Ąžuolyno radijas" - tai internetinis radijas su laidomis, interviu, muzika ir tinklalaidėmis.</h3>
+</head>
 
-        <div class="paveikslelis">
-            <img src="radijas_logo.jpg" width="600" height="600" alt="Radijas logo">
-            <iframe src="https://www.google.com/maps/embed?..." width="600" height="450" style="border:0;" allowfullscreen></iframe>
-        </div>
-    </main>
+<aside>
 
-    <aside>
-        <h1>Naujausios tinklalaidės:</h1>
-        <div id="video-container"></div>
-    </aside>
-</div>
+  <h1>Naujausios tinklalaidės:</h1> 
 
-<footer>
-    <h2>Socialinės medijos</h2>
-    <div class="row">
-        <div class="column"><a href="https://www.instagram.com/azuolyno_radijas/"><img src="instagram.png"></a></div>
-        <div class="column"><a href="https://www.facebook.com/profile.php?id=100076319555972"><img src="facebook.png"></a></div>
-        <div class="column"><a href="https://www.youtube.com/@azuolynoradijas"><img src="youtube.png"></a></div>
-        <div class="column"><a href="https://open.spotify.com/show/42ROD5Z8nIjW1Mw5UpSYRy?"><img src="spotify.png"></a></div>
-    </div>
-</footer>
+  <!--Naudojamas Youtube Data API v3
+  https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&inv=1&invt=AbmC-w&project=river-key-407312-->
+  
+  <div id="video-container"></div>
 
 <script>
-    const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg';
-    const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA';
-    const MAX_RESULTS = 5;
 
-    async function fetchLatestVideos() {
-        const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
-        const response = await fetch(url);
-        const data = await response.json();
+  const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg'; // mano yt api kodukas
+  const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA'; // radijo kanalo ID
+  const MAX_RESULTS = 5; // kiek naujausiu video rodys
 
-        const videoContainer = document.getElementById('video-container');
-        data.items.forEach(item => {
-            if (item.id.kind === "youtube#video") {
-                const videoId = item.id.videoId;
-                const videoTitle = item.snippet.title;
+  async function fetchLatestVideos() {
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+    const response = await fetch(url);
+    const data = await response.json();
 
-                const videoElement = document.createElement('div');
-                videoElement.className = 'video';
-                videoElement.innerHTML = `
-                    <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-                    <p>${videoTitle}</p>
-                `;
-                videoContainer.appendChild(videoElement);
-            }
-        });
-    }
+    const videoContainer = document.getElementById('video-container');
+    data.items.forEach(item => {
+      if (item.id.kind === "youtube#video") {
+        const videoId = item.id.videoId;
+        const videoTitle = item.snippet.title;
 
-    fetchLatestVideos();
+        const videoElement = document.createElement('div');
+        videoElement.className = 'video';
+        videoElement.innerHTML = `
+          <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+          <p>${videoTitle}</p>
+        `;
+        videoContainer.appendChild(videoElement);
+      }
+    });
+  }
+
+  fetchLatestVideos();
+
 </script>
+  
+</aside>
+
+<body>
+  <br>
+  <h1>Ąžuolyno Radijas</h1>
+  
+  <h3>,,Ąžuolyno radijas'' - tai internetinis radijas. Jame vyksta laidos, interviu, podcast'ai, muzika ir daug visko, kas suteikia ąžuolyniečiui energijos ir įkvėpimo.</h3>
+  
+  <br>
+  <div class="paveikslelis">
+  <div class="clr"></div>
+    <img src="radijas_logo.jpg" width="600" height="600" alt="" />
+    <div class="clr"></div> 
+    <br>
+  
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1457.8566326678665!2d21.15814067337195!3d55.70077204357515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e4dc0e60bb71cd%3A0xbb12a978a1dc599b!2zS2xhaXDEl2RvcyDigJ7EhMW-dW9seW5v4oCcIGdpbW5hemlqYQ!5e0!3m2!1slt!2slt!4v1736104862931!5m2!1slt!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="article">
+
+    <h2><span>Socialinės medijos</span></h2>
+    
+    <div class="row">
+      
+      <div class="column">
+        <p class="links"><a href="https://www.instagram.com/azuolyno_radijas/"><img src="instagram.png" width="100" height="100"></a></p>
+      </div>
+      <div class="column">
+        <p class="links"><a href="https://www.facebook.com/profile.php?id=100076319555972"><img src="facebook.png" width="100" height="100"></a></p>
+      </div>
+      <div class="column">
+        <p class="links"><a href="https://www.youtube.com/@azuolynoradijas"><img src="youtube.png" width="100" height="100"></a></p>
+      </div>
+      <div class="column">
+        <p class="links"><a href="https://open.spotify.com/show/42ROD5Z8nIjW1Mw5UpSYRy?si=o0TIH1eQSoOpN9SsLV9KPQ&utm_source=copy-link&nd=1&dlsi=09dedbd74a1748f6"><img src="spotify.png" width="100" height="100"></a></p>
+      </div>
+      
+    </div>
+    
+  </div>
 
 </body>
+
 </html>

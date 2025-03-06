@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Ąžuolyno Radijas</title>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+    <link rel="stylesheet" type="text/css" href="podkastai.css" /> 
+
+</header>
+
+<head>
+    <ul>
+        <li><a class="meniu" href="main.html">Pradžia</a></li>
+        <li><a class="meniu" href="tinklalaides.html">Tinklalaides</a></li>
+    </ul>
+    
+
+</head>
+
+<aside>
+
+    <h2>Klausykis:</h2>
+
+    <div class="row">
+      
+        <div class="column">
+          <p class="links"><a href="https://www.youtube.com/@azuolynoradijas"><img src="youtube.png" width="100" height="100"></a></p>
+        </div>
+        <div class="column">
+          <p class="links"><a href="https://open.spotify.com/show/1hJfLsqZkC9p0mYPkBUyba?si=f91564e41ab546f7"><img src="spotify.png" width="100" height="100"></a></p>
+        </div>
+        
+      </div>
+      <br>
+      <h2>Sirpstanti Bomba</h2>
+      <h3></h3>
+      <br>
+      <p>Bombinis podcast'as<b>„Sirpstanti bomba“</b> su Titu, Eivinu ir Kasparu jau eteryje! </p>
+      <br>
+      <p> Lekiam klausyt!</p>
+      </div>
+      
+</aside>
+
+<body>
+
+    <br>
+    <div style="text-align:center">
+    <h1>Sirpstanti Bomba</h1>
+    <div class="podcast-item">
+    <img src="bomba1.jpg">
+    </div>
+    
+
+</body>
+
+
+</html>

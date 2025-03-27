@@ -1,61 +1,79 @@
 <!DOCTYPE html>
-<html>
-<header>
+<html lang="en">
+<head>
     <title>Ąžuolyno Radijas</title>
     
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
-    <link rel="stylesheet" type="text/css" href="podkastai.css" /> 
-
-</header>
-
-<head>
-    <ul>
-        <li><a class="meniu" href="main.html">Pradžia</a></li>
-        <li><a class="meniu" href="tinklalaides.html">Tinklalaides</a></li>
-    </ul>
-    
-
+    <link rel="stylesheet" type="text/css" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" /> 
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </head>
-
-<aside>
-
-    <h2>Klausykis:</h2>
-
-    <div class="row">
-      
-        <div class="column">
-          <p class="links"><a href="https://www.youtube.com/@azuolynoradijas"><img src="youtube.png" width="100" height="100"></a></p>
-        </div>
-        <div class="column">
-          <p class="links"><a href="https://open.spotify.com/show/49rmrols9g4fEWVLA9AcAW?si=8c76040b97f04743"><img src="spotify.png" width="100" height="100"></a></p>
-        </div>
-        
-      </div>
-      <br>
-      <h2>DuIDaViens</h2>
-      <h3></h3>
-      <br>
-      <p>Ar nori pasiklausyti apie šių dienų aktualijas apžvelgiamas su humoru, įsijunk <b>DuIDaViens</b></p>
-      <br>
-      </div>
-      
-</aside>
 
 <body>
 
-    <br>
-    <div style="text-align:center">
-    <h1>DuIDaViens</h1>
-    <div class="podcast-item">
-    <img src="duidaviens1.jpg">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="logo.png" alt="Logo" style="width:50px;" class="rounded-pill me-2"> 
+            <span class="text-white">Ąžuolyno Radijas</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.html">Pradžia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="tinklalaides.html">Tinklalaidės</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <br>
+  </nav>
 
+  <div class="container-sm mt-5 pt-5	">
+    <div class="row">
+        <!-- Content Section (on the left) -->
+        <div class="col-lg-8 col-12 ">
+          <div class="text-center">
+            <h1>DuIDaViens</h1>
+          </div>
+            <br>
+            <img class="img-fluid" src="duidaviens1.jpg" class="rounded" width="600" height="600" alt="" />
+            <br>
+                  </div>
+
+        <!-- Video Section (on the right) -->
+        <div class="col-lg-4 col-12">
+            <!-- Video content will go here -->
+            <br>
+            <h2>DuIDaViens</h2>
+            <h3></h3>
+            <br>
+            <h3>Ar nori pasiklausyti apie šių dienų aktualijas apžvelgiamas su humoru, įsijunk <b>DuIDaViens</b></h3>
+            <br>
+            <h3> Lekiam klausyt!</h3>
+            <br> <br>
+            <div class="row justify-content-center">
+              <!-- Each column now behaves as an inline flex container for horizontal layout -->
+              <div class="col-auto">
+                  <p class="links"><a href="https://www.instagram.com/stories/highlights/17931315272955119/"><img src="instagram.png" width="110" height="110"></a></p>
+              </div>
+              <div class="col-auto">
+                  <p class="links"><a href="https://www.youtube.com/@azuolynoradijas"><img src="youtube.png" width="100" height="100"></a></p>
+              </div>
+              <div class="col-auto">
+                <p class="links"><a href="https://open.spotify.com/show/49rmrols9g4fEWVLA9AcAW?si=8c76040b97f04743"><img src="spotify.png" width="100" height="100"></a></p>
+              </div>
+          </div>
+
+        </div>
     </div>
+  </div>
 
 </body>
-
 </html>

@@ -1,106 +1,110 @@
 <!DOCTYPE html>
-<html>
-<header>
+<html lang="en">
+<head>
     <title>Ąžuolyno Radijas</title>
     
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
-    <link rel="stylesheet" type="text/css" href="main.css" /> 
-
-</header>
-
-<head>
-    <ul>
-        <li><a class="meniu" href="main.html">Pradžia</a></li>
-        <li><a class="meniu" href="tinklalaides.html">Tinklalaides</a></li>
-    </ul>
-    
-
+    <link rel="stylesheet" type="text/css" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" /> 
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<aside>
-
-  <h1>Naujausios tinklalaidės:</h1> 
-
-  <!--Naudojamas Youtube Data API v3
-  https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&inv=1&invt=AbmC-w&project=river-key-407312-->
-  
-  <div id="video-container"></div>
-
-<script>
-
-  const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg'; // mano yt api kodukas
-  const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA'; // radijo kanalo ID
-  const MAX_RESULTS = 5; // kiek naujausiu video rodys
-
-  async function fetchLatestVideos() {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
-    const response = await fetch(url);
-    const data = await response.json();
-
-    const videoContainer = document.getElementById('video-container');
-    data.items.forEach(item => {
-      if (item.id.kind === "youtube#video") {
-        const videoId = item.id.videoId;
-        const videoTitle = item.snippet.title;
-
-        const videoElement = document.createElement('div');
-        videoElement.className = 'video';
-        videoElement.innerHTML = `
-          <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-          <p>${videoTitle}</p>
-        `;
-        videoContainer.appendChild(videoElement);
-      }
-    });
-  }
-
-  fetchLatestVideos();
-
-</script>
-  
-</aside>
-
 <body>
-  <br>
-  <h1>Ąžuolyno Radijas</h1>
-  
-  <h3>,,Ąžuolyno radijas'' - tai internetinis radijas. Jame vyksta laidos, interviu, podcast'ai, muzika ir daug visko, kas suteikia ąžuolyniečiui energijos ir įkvėpimo.</h3>
-  
-  <br>
-  <div class="paveikslelis">
-  <div class="clr"></div>
-    <img src="radijas_logo.jpg" width="600" height="600" alt="" />
-    <div class="clr"></div> 
-    <br>
-  
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1457.8566326678665!2d21.15814067337195!3d55.70077204357515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e4dc0e60bb71cd%3A0xbb12a978a1dc599b!2zS2xhaXDEl2RvcyDigJ7EhMW-dW9seW5v4oCcIGdpbW5hemlqYQ!5e0!3m2!1slt!2slt!4v1736104862931!5m2!1slt!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <div class="article">
 
-    <h2><span>Socialinės medijos</span></h2>
-    
-    <div class="row">
-      
-      <div class="column">
-        <p class="links"><a href="https://www.instagram.com/azuolyno_radijas/"><img src="instagram.png" width="100" height="100"></a></p>
-      </div>
-      <div class="column">
-        <p class="links"><a href="https://www.facebook.com/profile.php?id=100076319555972"><img src="facebook.png" width="100" height="100"></a></p>
-      </div>
-      <div class="column">
-        <p class="links"><a href="https://www.youtube.com/@azuolynoradijas"><img src="youtube.png" width="100" height="100"></a></p>
-      </div>
-      <div class="column">
-        <p class="links"><a href="https://open.spotify.com/show/42ROD5Z8nIjW1Mw5UpSYRy?si=o0TIH1eQSoOpN9SsLV9KPQ&utm_source=copy-link&nd=1&dlsi=09dedbd74a1748f6"><img src="spotify.png" width="100" height="100"></a></p>
-      </div>
-      
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="logo.png" alt="Logo" style="width:50px;" class="rounded-pill me-2"> 
+            <span class="text-white">Ąžuolyno Radijas</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="main.html">Pradžia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tinklalaides.html">Tinklalaidės</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    
+  </nav>
+
+  <div class="container-sm mt-5 pt-5">
+    <div class="row">
+        <!-- Content Section (on the left) -->
+        <div class="col-lg-8 col-12 ">
+          <div class="text-center">
+            <h1>Ąžuolyno Radijas</h1>
+          </div>
+            <h3><b>„Ąžuolyno radijas“ </b> - tai internetinis radijas. Jame vyksta laidos, interviu, podcast'ai, muzika ir daug visko, kas suteikia ąžuolyniečiui energijos ir įkvėpimo.</h3>
+            <br>
+            <img class="img-fluid" src="radijas_logo.jpg" class="rounded" width="600" height="600" alt="" />
+            <br><br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1157.10654710648!2d21.157882593266848!3d55.70060629274143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e4dc0e60bb71cd%3A0xbb12a978a1dc599b!2zS2xhaXDEl2RvcyDigJ7EhMW-dW9seW5v4oCcIGdpbW5hemlqYQ!5e0!3m2!1slt!2slt!4v1740045699651!5m2!1slt!2slt" class="rounded" width="600" height="600" alt="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Video Section (on the right) -->
+        <div class="col-lg-4 col-12" id="video-container">
+            <!-- Video content will go here -->
+        </div>
+    </div>
   </div>
+
+  <div class="container-fluid text-center">
+    <br> <h2><span>Socialinės medijos</span></h2> <br>
+    <div class="row justify-content-center">
+        <!-- Each column now behaves as an inline flex container for horizontal layout -->
+        <div class="col-auto">
+            <p class="links"><a href="https://www.instagram.com/azuolyno_radijas/"><img src="instagram.png" width="110" height="110"></a></p>
+        </div>
+        <div class="col-auto">
+            <p class="links"><a href="https://www.facebook.com/profile.php?id=100076319555972"><img src="facebook.png" width="100" height="100"></a></p>
+        </div>
+        <div class="col-auto">
+            <p class="links"><a href="https://www.youtube.com/@azuolynoradijas"><img src="youtube.png" width="100" height="100"></a></p>
+        </div>
+        <div class="col-auto">
+            <p class="links"><a href="https://open.spotify.com/show/42ROD5Z8nIjW1Mw5UpSYRy?si=o0TIH1eQSoOpN9SsLV9KPQ&utm_source=copy-link&nd=1&dlsi=09dedbd74a1748f6"><img src="spotify.png" width="100" height="100"></a></p>
+        </div>
+    </div>
+</div>
+
+
+  <script>
+    const API_KEY = 'AIzaSyBVuDvxuFype98gDezjITlhhkcymPAwuxg';
+    const CHANNEL_ID = 'UCAVfAs9ro7R7Vu4-yOxUznA';
+    const MAX_RESULTS = 5;
+
+    async function fetchLatestVideos() {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const videoContainer = document.getElementById('video-container');
+      data.items.forEach(item => {
+        if (item.id.kind === "youtube#video") {
+          const videoId = item.id.videoId;
+          const videoTitle = item.snippet.title;
+
+          const videoElement = document.createElement('div');
+          videoElement.className = 'video';
+          videoElement.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+            <p>${videoTitle}</p>
+          `;
+          videoContainer.appendChild(videoElement);
+        }
+      });
+    }
+
+    fetchLatestVideos();
+  </script>
 
 </body>
-
 </html>

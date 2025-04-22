@@ -5,61 +5,106 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
-    <link rel="stylesheet" type="text/css" href="tinklalaides.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" /> 
+    <script src = "bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
     <title>Tinklalaidės</title>
-    <ul>
-        <li><a class="meniu" href="main.html">Pradžia</a></li>
-        <li><a class="meniu" href="tinklalaides.html">Tinklalaidės</a></li>
-    </ul>
-
 </head>
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo.png" alt="Logo" style="width:50px;" class="rounded-pill me-2"> 
+                <span class="text-white">Ąžuolyno Radijas</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Pradžia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tinklalaides.html">Tinklalaidės</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
-<body>
-
-    <h1>Mūsų tinklalaidės:</h1> 
-
-    <div class="podcast-grid">
-        <div class="podcast-item">
-            <a href="duidaviens.html">
-                <img src="duidaviens.jpg" alt="Podcast 1 Logo">
-            </a>
+<div class="container mt-5 pt-4">
+    <h1 class="text-center my-4">Mūsų tinklalaidės:</h1>
+    <div class="row g-4">
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a href="duidaviens.html">
+                    <img src="duidaviens.jpg" alt="Podcast 1 Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        <div class="podcast-item">
-            <a href="bomba.html">
-                <img src="bomba.jpg" alt="Podcast 2 Logo">
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a href="bomba.html">
+                    <img src="bomba.jpg" alt="Podcast 2 Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        <div class="podcast-item">
-            <a href="fonas.html">
-                <img src="fonas.jpg" alt="Podcast 3 Logo">
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a href="fonas.html">
+                    <img src="fonas.jpg" alt="Podcast 3 Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        <div class="podcast-item">
-            <a href="prasmeszemelapiai.html">
-                <img src="prasmeszemelapiai.jpg" alt="Podcast 4 Logo">
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a href="prasmeszemelapiai.html">
+                    <img src="prasmeszemelapiai.jpg" alt="Podcast 4 Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        <div class="podcast-item">
-            <a></a>
-                <img src="radijas_logo.jpg" alt="Radijas Logo">
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a>
+                    <img src="radijas_logo.jpg" alt="Radijas Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        <div class="podcast-item">
-            <a href="evavakare.html">
-                <img src="evavakare.jpg" alt="Podcast 5 Logo">
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a href="evavakare.html">
+                    <img src="evavakare.jpg" alt="Podcast 5 Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        <div class="podcast-item">
-            <a href="Talentingiaz.html">
-                <img src="Talentingiaz.jpg" alt="Podcast 6 Logo">
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a href="Talentingiaz.html">
+                    <img src="Talentingiaz.jpg" alt="Podcast 6 Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        <div class="podcast-item">
-            <a href="uzkadro.html">
-                <img src="uzkadro.jpg" alt="Podcast 7 Logo">
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <a href="uzkadro.html">
+                    <img src="uzkadro.jpg" alt="Podcast 7 Logo" class="img-fluid rounded">
+                </a>
+            </div>
         </div>
-        
     </div>
+</div>
+
+<style>
+.text-center img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-center img:hover {
+    transform: scale(1.1) ;
+}
+</style>
+
 </body>
 </html>
